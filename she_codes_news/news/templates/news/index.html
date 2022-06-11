@@ -4,7 +4,11 @@
 <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
 {% endblock %}
 {% block content %}
+
+{% if request.user.is_authenticated %}
 <a href="{% url 'news:newStory' %}">Write New Story</a>
+{% else %}
+
 <h2>Latest News</h2>
 
     <div id="latest-stories">
