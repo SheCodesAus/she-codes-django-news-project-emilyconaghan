@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{{request.user.username}}
-{{request.user.email}}
-{{request.user.last_login}}
-{{request.user.date_joined}}
+<h2> User Details </h2>
+<p></p>
+<p> Username: {{request.user.username}} </p>
+<p> Email: {{request.user.email}} </p>
+<p> Last Login Date: {{request.user.last_login}} </p>
+<p> Date Joined: {{request.user.date_joined}} </p>
 {% endblock %}

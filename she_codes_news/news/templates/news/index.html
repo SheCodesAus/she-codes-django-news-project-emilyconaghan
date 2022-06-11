@@ -8,6 +8,8 @@
 {% if request.user.is_authenticated %}
 <a href="{% url 'news:newStory' %}">Write New Story</a>
 {% else %}
+<p>Please log in to create a new story</p>
+{% endif %}
 
 <h2>Latest News</h2>
 
