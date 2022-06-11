@@ -5,11 +5,11 @@
 {% endblock %}
 {% block content %}
 
-{% if request.user.is_authenticated %}
+{% comment %} {% if request.user.is_authenticated %}
 <a href="{% url 'news:newStory' %}">Write New Story</a>
 {% else %}
 <p>Please log in to create a new story</p>
-{% endif %}
+{% endif %} {% endcomment %}
 
 <h2>Latest News</h2>
 
