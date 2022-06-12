@@ -4,9 +4,10 @@
 
 {% block content %}
 
-<h2>read more from {{ story.author }}</h2>
+
 {% if author_list %}
     <ul>
+        <h2>read more from {{ story.author }}</h2>
         {% for story in author_list %}
             <div id="story-wrapper">
             <h2>{{ story.title }}</h2>
