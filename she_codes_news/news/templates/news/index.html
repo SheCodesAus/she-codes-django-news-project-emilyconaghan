@@ -11,6 +11,8 @@
 <p>Please log in to create a new story</p>
 {% endif %}
 
+
+
 <h2>Latest News</h2>
 
     <div id="latest-stories">
@@ -32,4 +34,7 @@
             <p>No stories are available.</p>
         {% endif %}
     </div>
+
+    <a href="{% url 'news:newStory' %}">View stories by Author</a>    
+    
     {% endblock %}

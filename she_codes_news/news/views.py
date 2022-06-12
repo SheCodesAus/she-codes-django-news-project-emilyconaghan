@@ -61,6 +61,13 @@ class AuthorsListView(generic.ListView):
         return NewsStory.objects.filter(author=author_id,)
 
 
+class SelectAuthorView(generic.ListView):
+    form_class = StoryForm
+    context_object_name = 'author_list'
+    template_name = 'news/selectAuthor.html'
+    # paginate_by = 50
+
+
 # def get_author_name(self, **kwargs, pk):
 #     user = self.get_object(pk)
 #     context = {}

@@ -12,7 +12,7 @@ header {
 }
 
 img {
-    filter: grayscale(100%);
+    border-radius: 25px;
 }
 
 h1 {
@@ -51,4 +51,11 @@ a {
 
 a, p {
     font-family: monospace;
+}
+
+.form-div {
+    display: contents;
+    align-content: center;
+    margin: 10%;
+    font-size: 18pt;
 }
