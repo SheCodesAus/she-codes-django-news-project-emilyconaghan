@@ -18,15 +18,6 @@ class IndexView(generic.ListView):
         context['all_stories'] = NewsStory.objects.all().order_by('-pub_date')
         return context
 
-    # def get_author_name(self, pk):
-    #     user = self.get_object(pk)
-    #     context = {}
-    #     context['latest_stories'] = NewsStory.objects.all().filter(author=user)[
-    #         :4]
-    #     context['all_stories'] = NewsStory.objects.all().filter(
-    #         author=user).all()
-    #     return context
-
 
 class StoryView(generic.DetailView):
     model = NewsStory
@@ -59,18 +50,3 @@ class AuthorsListView(generic.ListView):
     def get_queryset(self):
         author_id = self.kwargs['pk']
         return NewsStory.objects.filter(author=author_id,)
-
-
-class SelectAuthorView(generic.ListView):
-    form_class = StoryForm
-    context_object_name = 'author_list'
-    template_name = 'news/selectAuthor.html'
-    # paginate_by = 50
-
-
-# def get_author_name(self, **kwargs, pk):
-#     user = self.get_object(pk)
-#     context = {}
-#     context['latest_stories'] = NewsStory.objects.all().filter(author=user)[:4]
-#     context['all_stories'] = NewsStory.objects.all().filter(author=user).all()
-#     return context
