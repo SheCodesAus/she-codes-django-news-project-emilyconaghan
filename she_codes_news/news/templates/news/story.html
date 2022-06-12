@@ -15,4 +15,6 @@
         {{ story.content|linebreaks }}
     </div>
 </div>
+
+<a href="{% url 'news:author' story.author.id %}"><h4>{{ story.author }}</h4></a>
 {% endblock %}

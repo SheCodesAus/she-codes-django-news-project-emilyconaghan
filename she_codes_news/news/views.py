@@ -18,6 +18,15 @@ class IndexView(generic.ListView):
         context['all_stories'] = NewsStory.objects.all().order_by('-pub_date')
         return context
 
+    # def get_author_name(self, pk):
+    #     user = self.get_object(pk)
+    #     context = {}
+    #     context['latest_stories'] = NewsStory.objects.all().filter(author=user)[
+    #         :4]
+    #     context['all_stories'] = NewsStory.objects.all().filter(
+    #         author=user).all()
+    #     return context
+
 
 class StoryView(generic.DetailView):
     model = NewsStory
@@ -34,3 +43,27 @@ class AddStoryView(generic.CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+class AuthorsListView(generic.ListView):
+    form_class = StoryForm
+    context_object_name = 'author_list'
+    template_name = 'news/author.html'
+    paginate_by = 50
+
+    def get_context_data(self, **kwargs):
+        context = super(AuthorsListView, self).get_context_data(**kwargs)
+        context['author'] = NewsStory.objects.all()
+        return context
+
+    def get_queryset(self):
+        author_id = self.kwargs['pk']
+        return NewsStory.objects.filter(author=author_id,)
+
+
+# def get_author_name(self, **kwargs, pk):
+#     user = self.get_object(pk)
+#     context = {}
+#     context['latest_stories'] = NewsStory.objects.all().filter(author=user)[:4]
+#     context['all_stories'] = NewsStory.objects.all().filter(author=user).all()
+#     return context
